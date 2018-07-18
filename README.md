@@ -25,6 +25,7 @@ http://52.59.250.248.nip.io
 ```
 
 ## Software installed:
+
 * apache2;
 * libapache2-mod-wsgi;
 * postgresql;
@@ -34,10 +35,12 @@ http://52.59.250.248.nip.io
 * Item-Catalog-App (includes all required python packages);
 
 ## Configuration:
+
 * changed the SSH port from 22 to 2200 (/etc/ssh/sshd_config);
+* specified that login is allowed only for  users "ubuntu", "grader" (/etc/ssh/sshd_config);
 * configured the Lightsail firewall to allow it;
 * configured the UFW to only allow incoming connections for SSH (port 2200), HTTP (port 80), and NTP (port 123);
-* created a new user account named "grader", gave "grader" the permission to sudo (/etc/sudoers.d/grader); 
+* created a new user account named "grader", gave "grader" the permission to sudo (/etc/sudoers.d/grader);
 * installed a ssh key for "grader";
 * configured Apache to serve a Python mod_wsgi application (/var/www/Item-Catalog-App/catalogApp.wsgi, /etc/apache2/sites-available/catalogApp.conf);
 * configured Apache to allow "Authorization" headers in requests (required by the Catalog App API).
@@ -45,6 +48,7 @@ http://52.59.250.248.nip.io
 * due to Google restrictions for javascript origins and redirect URIs, used http://nip.io DNS service;
 
 ## Third-party resources:
+
 * http://modwsgi.readthedocs.io/en/develop/index.html;
 * http://httpd.apache.org/docs;
 * http://flask.pocoo.org/docs/1.0/;
